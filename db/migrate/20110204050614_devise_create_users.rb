@@ -5,10 +5,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.trackable
-      t.string :first_name
-      t.string :last_name
-      t.integer :invitation_id
-      t.float :invitation_fund
 
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
