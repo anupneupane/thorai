@@ -1,0 +1,92 @@
+<div id="main-content"><!-- main content begins here -->
+
+<div class="top-panel"><!-- top panel starts here -->
+	<div class="dealslist">
+		<%= form_for LineItem.new(:deal_id => @deal.id) do |f| %>
+		<%= f.hidden_field :deal_id %>
+			<h2><%= @deal.title %></h2>
+			<div class="deal-img">
+				<%=  image_tag @deal.merchant.picture.url %>
+			</div>
+			<div class="details">
+				<div class="discount">
+					<label>Discount</label>
+					<div class="discount-value"><%= number_to_percentage(@deal.discount_percent, :precision => 0) %></div>
+				</div>
+				<div class="button">
+					<%= f.submit '' %>
+				</div>
+				<div class="other-info">
+					<div class="other-value">
+						<label>Value</label>
+						<div class="value"><%= number_to_currency(@deal.original_price, :precision => 0) %></div>
+					</div>
+					<div class="other-value">
+						<label>Deal Price</label>
+						<div class="value"><%= number_to_currency(@deal.deal_price, :precision => 0) %></div>
+					</div>
+					<div class="other-value">
+						<label>You save</label>
+						<div class="value"><%= number_to_currency(@deal.dollars_saved, :precision => 0) %></div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div><!-- top panel ends here -->
+
+<div class="center-panel">
+	<div class="left-pane">
+		<div id="block-3">
+			<div class="friend"><a href="#">Buy it for a friend</a></div>
+			<div class="coupons">39 Coupons bought</div>
+			<div class="social-links">
+				<div class="title">Share this deal</div>
+				<ul>
+					<li class="facebook"><a href="#">facebook</a></li>
+					<li class="twitter"><a href="#">twitter</a></li>
+					<li class="mail"><a href="#">mail</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="block-4">
+			<div class="title">Terms and Conditions</div>
+			<ul>
+			<li>Valid for all items</li>
+			<li>Maximum 1 voucher per person</li>
+			<li>Taxes will be extra</li>
+			<li>Cannot combine with other</li></ul>
+		</div>
+	</div>
+
+	<div class="content-page">
+		<h2 class="title">Description</h2>
+		<p><%= @deal.description %></p>
+		
+		<h3>Discussions on this deal</h3>
+		<% if @deal.discussions.empty? %>
+				No discussions on this deal yet. Be first to write!
+		<% end %>
+		<h4 id="discussions_count"><%= pluralize(@deal.discussions.size, "Discussion") %></h4>
+		<div id="discussions">
+		  <%= render :partial => @deal.discussions %>
+		</div>
+		
+		<% form_for Discussion.new(:deal_id => @deal.id) do |f| %>
+		<%= f.hidden_field :deal_id %>
+		  <p>
+		    <%= f.label :comment, "Comment" %><br />
+		    <%= f.text_area :comment, :rows => 5 %>
+		  </p>
+		  <p><%= f.submit "Add Discussion" %></p>
+		<% end %>
+		
+	</div>
+	<div class="clear"></div>
+</div>
+
+</div><!-- main content ends here -->
+
+<%= render :partial => "layouts/sidebar" %>
+<div class="clear"></div>

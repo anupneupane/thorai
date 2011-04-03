@@ -1,0 +1,5 @@
+placed:  0
+in_progress: 1
+shipped: 2
+returned: 3
+cancelled: 4

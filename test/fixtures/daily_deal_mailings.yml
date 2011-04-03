@@ -1,0 +1,11 @@
+one:
+  city_id: 1
+  email: MyString
+  scheduled_at: 2011-02-04 00:24:50
+  delivered_at: 2011-02-04 00:24:50
+
+two:
+  city_id: 1
+  email: MyString
+  scheduled_at: 2011-02-04 00:24:50
+  delivered_at: 2011-02-04 00:24:50

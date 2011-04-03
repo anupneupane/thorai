@@ -1,0 +1,13 @@
+<div id="main-content">
+	
+	<%= link_to "Refer Friends", new_invitation_path %><br/>
+	<%= link_to "Daily deals in your Inbox!", new_daily_deal_mailing_path %>
+	<% for active_deal in @active_deals %>
+		<%= render :partial => "active_deal", :locals => { :active_deal => active_deal } %>
+	<% end %>
+
+</div><!-- main content ends here -->
+
+	<%= render :partial => "layouts/sidebar" %>
+
+<div class="clear"></div>

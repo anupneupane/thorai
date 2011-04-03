@@ -1,0 +1,23 @@
+<% title "Line Items" %>
+
+<table>
+  <tr>
+    <th>Deal</th>
+    <th>Chest</th>
+    <th>Order</th>
+    <th>Quantity</th>
+  </tr>
+  <% for line_item in @line_items %>
+    <tr>
+      <td><%= line_item.deal_id %></td>
+      <td><%= line_item.chest_id %></td>
+      <td><%= line_item.order_id %></td>
+      <td><%= line_item.quantity %></td>
+      <td><%= link_to "Show", line_item %></td>
+      <td><%= link_to "Edit", edit_line_item_path(line_item) %></td>
+      <td><%= link_to "Destroy", line_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Line Item", new_line_item_path %></p>

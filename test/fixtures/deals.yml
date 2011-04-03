@@ -1,0 +1,21 @@
+one:
+  merchant_id: 1
+  sub_category_id: 1
+  title: MyString
+  description: MyString
+  original_price: 1.5
+  deal_price: 1.5
+  start_date: 2011-02-04 00:13:08
+  end_date: 2011-02-04 00:13:08
+  is_on: false
+
+two:
+  merchant_id: 1
+  sub_category_id: 1
+  title: MyString
+  description: MyString
+  original_price: 1.5
+  deal_price: 1.5
+  start_date: 2011-02-04 00:13:08
+  end_date: 2011-02-04 00:13:08
+  is_on: false

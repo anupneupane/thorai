@@ -1,0 +1,105 @@
+<%= form_for @deal do |f| %>
+
+	<div id="main-content"><!-- main content begins here -->
+		<% if params[:deal_preview_before_create] == "true" %>
+			<h1>Deal Preview</h1>
+				<div class="dealslist">
+					<h2><%= @deal.title %></h2>
+					<div class="deal-img">
+						<%=  image_tag @deal.merchant.picture.url %>
+					</div>
+					<div class="details">
+						<div class="discount">
+							<label>Discount</label>
+							<div class="discount-value"><%= number_to_percentage(@deal.discount_percent, :precision => 0) %></div>
+						</div>
+						<div class="button">
+							<!--%= image_tag  %-->
+						</div>
+						<div class="other-info">
+							<div class="other-value">
+								<label>Value</label>
+								<div class="value"><%= number_to_currency(@deal.original_price, :precision => 0) %></div>
+							</div>
+							<div class="other-value">
+								<label>Deal Price</label>
+								<div class="value"><%= number_to_currency(@deal.deal_price, :precision => 0) %></div>
+							</div>
+							<div class="other-value">
+								<label>You save</label>
+								<div class="value"><%= number_to_currency(@deal.dollars_saved, :precision => 0) %></div>
+							</div>
+						</div><!-- other-info -->
+					</div><!-- details -->
+				</div><!-- dealslist -->
+
+		<div class="center-panel">
+			<div class="left-pane">
+				<div id="block-3">
+					<div class="friend"><a href="#">Buy it for a friend</a></div>
+					<div class="coupons">39 Coupons bought</div>
+					<div class="social-links">
+						<div class="title">Share this deal</div>
+						<ul>
+							<li class="facebook"><a href="#">facebook</a></li>
+							<li class="twitter"><a href="#">twitter</a></li>
+							<li class="mail"><a href="#">mail</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="block-4">
+					<div class="title">Terms and Conditions</div>
+					<ul>
+					<li>Valid for all items</li>
+					<li>Maximum 1 voucher per person</li>
+					<li>Taxes will be extra</li>
+					<li>Cannot combine with other</li></ul>
+				</div>
+			</div>
+
+			<div class="content-page">
+				<h2 class="title">Description</h2>
+				<p><%= @deal.description %></p>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+	<% end %>
+
+	<p>
+		Merchant <%= f.select :merchant_id, @merchants.map {|sc| [sc.name,sc.id]} %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 10 %>
+  </p>
+  <p>
+    <%= f.label :original_price %><br />
+    <%= f.text_field :original_price %>
+  </p>
+  <p>
+    <%= f.label :deal_price %><br />
+    <%= f.text_field :deal_price %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.datetime_select :start_date %>
+  </p>
+  <p>
+    <%= f.label :end_date %><br />
+    <%= f.datetime_select :end_date %>
+  </p>
+	<p>
+		<%= check_box_tag 'deal_preview_before_create', 'true', true %>Preview
+	</p>
+  <p><%= f.submit %></p>
+
+	</div>	
+		<div class="clear"></div>
+	</div>
+<% end %>

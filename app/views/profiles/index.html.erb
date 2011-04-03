@@ -1,0 +1,23 @@
+<% title "Profiles" %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Birth Date</th>
+  </tr>
+  <% for profile in @profiles %>
+    <tr>
+      <td><%= profile.user_id %></td>
+      <td><%= profile.first_name %></td>
+      <td><%= profile.last_name %></td>
+      <td><%= profile.birth_date %></td>
+      <td><%= link_to "Show", profile %></td>
+      <td><%= link_to "Edit", edit_profile_path(profile) %></td>
+      <td><%= link_to "Destroy", profile, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Profile", new_profile_path %></p>

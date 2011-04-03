@@ -1,0 +1,7 @@
+<% title "Purchest" %>
+
+<ul>
+	<% for active_deal in @active_deals %>
+		<%= render :partial => "active_deal", :locals => { :active_deal => active_deal } %>
+	<% end %>
+</ul>

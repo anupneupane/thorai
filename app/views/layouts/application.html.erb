@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purchest - <%= yield(:title) || "Purchase as a community" %></title>
+  <%= stylesheet_link_tag "application", "jquery-ui-1.8.10.custom" %>
+	<!--%= stylesheet_link_tag 'mobile' if mobile_device? %-->
+  <%= javascript_include_tag 'jquery', 'jquery-ui', 'application', 'rails', 'client-side-validations' %>
+  <%= csrf_meta_tag %>
+  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+	<div id="wrapper"> <!-- wrapper begins here -->
+		<div id="container">
+			<div id="header">
+				<div class="logo">
+					<span><a href="#">Logo</a></span><br/><br/>
+				</div>
+
+				<div class="header-content">        
+					<div class="mainMenu">
+						<ul>
+							<li class="active"><%= link_to "Today", home_index_path %></a></li>
+							<li><a href="#">About</a></li>
+							<% if user_signed_in? %>
+								<li><%= link_to "My Account", users_show_user_account_path %></a></li>
+								<li><%= link_to "Sign out", destroy_user_session_path %></a></li>
+							<% elsif admin_signed_in?  %>
+								<li><%= link_to "Admin", admin_tasks_home_path %></a></li>
+								<li><%= link_to "Sign out", destroy_admin_session_path %></a></li>
+							<% else %>
+								<li><%= link_to "Sign up", new_user_registration_path %></a></li>
+								<li><%= link_to "Sign in", new_user_session_path %></a></li>
+							<% end %>
+						</ul>
+					</div>
+
+					<div class="email-interest">
+						<div class="email-info">
+							Get deals in your email
+						</div>
+						<div class="interest-wrapper">
+							<input id="interests" type="text">
+							<input id="interest-add" type="button">
+						</div>
+					</div> <!-- end of email interest -->
+				</div> <!-- end of header content -->
+
+				<!--% if mobile_device? %>
+					<!--%= link_to "Full Site", :mobile => 0 %>
+				<!--% else %>
+					<!--%= link_to "Mobile Site", :mobile => 1 %>				
+				<!--% end %-->
+			<div class="clear"></div>
+		</div>
+			
+		<div id="content"> <!-- content begins here -->
+			<div id="chest">
+				<% if @chest %>
+			     <%= hidden_div_if(@chest.line_items.empty?, :id => "chest") do %>
+			       <%= render @chest %>
+			     <% end %>
+				<% end %>
+			</div>
+				<%= yield %>
+		</div> <!-- end of content -->
+
+	</div> <!-- End of container -->
+	
+	<div id="footer-wrapper">
+		<div id="footer">
+			<div class="footerMenu">
+				<ul>
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Community</a></li>
+					<li><a href="#">Legal Stuff</a></li>
+					<li><a href="#">Login/Signup</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<div class="copyright">Copyright 2011. Purchest</div>
+			<div class="clear"></div>
+		</div>
+	</div> <!-- end of footer-wrapper -->
+
+	</div>
+</body>
+</html>

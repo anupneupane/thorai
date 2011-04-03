@@ -1,0 +1,19 @@
+<%= form_for @daily_deal_mailing do |f| %>
+  <p>
+    <%= f.label :city_id %><br />
+    <%= f.text_field :city_id %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :scheduled_at %><br />
+    <%= f.datetime_select :scheduled_at %>
+  </p>
+  <p>
+    <%= f.label :delivered_at %><br />
+    <%= f.datetime_select :delivered_at %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

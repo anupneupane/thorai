@@ -1,0 +1,98 @@
+<%= form_tag '/orders' do %>
+
+	<table>
+	  <tr>
+
+	  </tr>
+	   	<%= render @cur_chest.line_items %>
+
+			<tr>
+				<td colspan="2">Total</td>
+				<td><%= number_to_currency(@cur_chest.total_price) %></td>
+			</tr>
+	</table>
+
+	<br />
+
+	<strong><h3>Select Payment Method</h3></strong>
+
+	<br />
+	
+	<% if invitation_funds_usable? %>
+		<p>
+			<strong>You have accumulated <%= number_to_currency(current_user.invitation_fund) %> by inviting your friends to purchest </strong>
+		</p>
+			<%= check_box_tag 'use_invitation_fund' %> Use Invitation treasure
+	<% end %>
+
+	<% if !user_signed_in? %>
+		<p>
+			Already a purchest user? <%= link_to "Sign in", :id => "sign_in_for_checkout" %> <!--%= link_to "Sign in", new_user_session_path %-->
+		</p>
+		<strong><p>Personal Information</p></strong>
+		<p>
+			First Name <br />
+				<%= text_field_tag :first_name %>
+		</p>
+		<p>Last Name<br />
+			<%= text_field_tag :last_name %>
+		</p>
+		<p>Email<br />
+			<%= text_field_tag :user_email %>
+		</p>
+		<p>Password<br />
+			<%= password_field_tag :password %>
+		</p>
+		<p>Confirm<br />
+			<%= password_field_tag :confirm %>
+		</p>
+	<% end %>
+
+	<br /><br/>
+
+	<h3>Billing Information</h3>
+	
+	<p>
+		Cardholder Name<br />
+		<%= text_field_tag :card_holder_name %>
+	</p>
+	<p>
+		Card Number<br />
+		<%= text_field_tag :card_number %>
+	</p>
+	<p>
+		Security Code<br />
+		<%= text_field_tag :security_code %>
+	</p>
+	<p>
+		Expiration Date<br />
+		<%= select_month(Date.today, :field_name => :exp_month) %>
+		<%= select_year(Date.today, 
+										:field_name => :exp_year,
+										:start_year => Date.today.year,
+										:end_year => Date.today.year + 10) %>
+	</p>
+	
+	<p>
+		Billing Address<br />
+		<%= text_field_tag :street_address %>
+	</p>
+	<p>
+		City<br />
+		<%= text_field_tag :city %>
+	</p>
+	<p>
+		State<br />
+		<%= select_tag :state, options_for_select(states) %>
+	</p>
+	<p>
+		Zip Code<br />
+		<%= text_field_tag :zip_code %>
+	</p>
+	<p>
+		<%= check_box_tag 'save_billing_info' %> Save Payment Info
+	</p>
+	
+	<%= submit_tag "Complete Order" %>
+	
+<% end %>

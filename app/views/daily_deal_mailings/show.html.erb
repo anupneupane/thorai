@@ -1,0 +1,24 @@
+<% title "Daily Deal Mailing" %>
+
+<p>
+  <strong>City:</strong>
+  <%= @daily_deal_mailing.city_id %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @daily_deal_mailing.email %>
+</p>
+<p>
+  <strong>Scheduled At:</strong>
+  <%= @daily_deal_mailing.scheduled_at %>
+</p>
+<p>
+  <strong>Delivered At:</strong>
+  <%= @daily_deal_mailing.delivered_at %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_daily_deal_mailing_path(@daily_deal_mailing) %> |
+  <%= link_to "Destroy", @daily_deal_mailing, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", daily_deal_mailings_path %>
+</p>

@@ -1,0 +1,17 @@
+one:
+  token: MyString
+  sender_id: 1
+  recipient_email: MyString
+  message: MyString
+  amount: 1.5
+  sent_at: 2011-02-20 19:31:16
+  activated: false
+
+two:
+  token: MyString
+  sender_id: 1
+  recipient_email: MyString
+  message: MyString
+  amount: 1.5
+  sent_at: 2011-02-20 19:31:16
+  activated: false

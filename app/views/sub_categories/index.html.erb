@@ -1,0 +1,19 @@
+<% title "Sub Categories" %>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Name</th>
+  </tr>
+  <% for sub_category in @sub_categories %>
+    <tr>
+      <td><%= sub_category.category %></td>
+      <td><%= sub_category.name %></td>
+      <td><%= link_to "Show", sub_category %></td>
+      <td><%= link_to "Edit", edit_sub_category_path(sub_category) %></td>
+      <td><%= link_to "Destroy", sub_category, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Sub Category", new_sub_category_path %></p>

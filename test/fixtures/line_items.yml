@@ -1,0 +1,11 @@
+one:
+  deal_id: 1
+  chest_id: 1
+  order_id: 1
+  quantity: 1
+
+two:
+  deal_id: 1
+  chest_id: 1
+  order_id: 1
+  quantity: 1

@@ -1,0 +1,14 @@
+<% unless chest.line_items.empty? %>
+	<div>Your Purchest</div>
+	<table>
+		<%= render(chest.line_items) %>
+	
+		<tr>
+			<td colspan="2">Total</td>
+			<td><%= number_to_currency(chest.total_price) %></td>
+		</tr>
+	</table>
+	
+	<%= button_to "Checkout", new_order_url, :method => :get %>
+	<%= button_to 'Empty Chest', chest, :method => :delete, :confirm => 'Are you sure?'%>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="view-row">
+	<div class="dealslist">
+		
+		<% form_for LineItem.new(:deal_id => active_deal.id) do |f| %>
+		<%= f.hidden_field :deal_id %>
+			<h2><%= link_to active_deal.title, deal_path(active_deal) %></h2>
+			<div class="deal-img">
+				<%= link_to image_tag(active_deal.merchant.picture.url), deal_path(active_deal) %>
+			</div>
+			<div class="details">
+				<div class="discount">
+					<label>Discount</label>
+					<div class="discount-value"><%= number_to_percentage(active_deal.discount_percent, :precision => 0) %></div>
+				</div>
+				<div class="button">
+					<%= f.submit '' %>
+				</div>
+				<div class="other-info">
+					<div class="other-value">
+						<label>Value</label>
+						<div class="value"><%= number_to_currency(active_deal.original_price, :precision => 0) %></div>
+					</div>
+					<div class="other-value">
+						<label>Deal Price</label>
+						<div class="value"><%= number_to_currency(active_deal.deal_price, :precision => 0) %></div>
+					</div>
+					<div class="other-value">
+						<label>You save</label>
+						<div class="value"><%= number_to_currency(active_deal.dollars_saved, :precision => 0) %></div>
+					</div>
+				</div>
+			</div>
+		<% end %>		
+	</div> <!-- end of deal list -->
+</div><!-- end of view row -->

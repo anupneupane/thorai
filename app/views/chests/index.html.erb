@@ -1,0 +1,16 @@
+<% title "Chests" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for chest in @chests %>
+    <tr>
+      <td><%= link_to "Show", chest %></td>
+      <td><%= link_to "Edit", edit_chest_path(chest) %></td>
+      <td><%= link_to "Destroy", chest, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Chest", new_chest_path %></p>

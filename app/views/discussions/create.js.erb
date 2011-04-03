@@ -1,0 +1,4 @@
+$("#new_discussion").before('<div id="notice"<%= escape_javascript(flash.delete(:notice))  %></div>');
+$("#discussions_count").html("<%= pluralize(@discussion.deal.discussions.count, 'Discussion') %>");
+$("#discussions").append("<%= escape_javascript(render(:partial => @discussion)) %>");
+$("#new_discussion")[0].reset();

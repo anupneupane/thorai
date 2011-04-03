@@ -1,0 +1,37 @@
+<% title "Edit Profile" %>
+
+<%= form_for @profile do |f| %>
+
+		<p>
+		  <%= f.label :first_name %><br />
+		  <%= f.text_field :first_name %>
+		</p>
+		<p>
+		  <%= f.label :last_name %><br />
+		  <%= f.text_field :last_name %>
+		</p>
+	
+  <p>
+    <%= f.label :birth_date %><br />
+    <%= f.date_select :birth_date %>
+  </p>
+
+	<p>
+		<% for category in @categories %>
+			<strong><%= category.name %></strong>
+			<% for sub_category in category.sub_categories%>
+				<div>
+					<%= check_box_tag "profile[user_interest_ids][]", sub_category.id,
+					@profile.get_user_interests.include?(sub_category.id) %> 
+					<%= sub_category.name %>
+				</div>
+			<% end %>
+		<% end %>
+	</p>
+
+	<%= f.fields_for :contact_information do |contact_builder| %>
+		<%= render 'contact_fields', :f => contact_builder %>
+	<% end %>
+
+  <p><%= f.submit "Save Profile" %></p>
+<% end %>

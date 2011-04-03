@@ -1,0 +1,8 @@
+<p>
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone %>
+</p>
+
+<%= f.fields_for :address do |address_builder| %>
+	<%= render 'address_fields', :f => address_builder %>
+<% end %>

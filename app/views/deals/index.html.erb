@@ -1,0 +1,33 @@
+<% title "Deals" %>
+
+<p><%= link_to "New Deal", new_deal_path %></p>
+
+<table>
+  <tr>
+    <th>Merchant</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Original Price</th>
+    <th>Deal Price</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Is On</th>
+  </tr>
+  <% for deal in @deals %>
+    <tr>
+      <td><%= deal.merchant.name %></td>
+      <td><%= deal.title %></td>
+      <td><%= deal.description %></td>
+      <td><%= deal.original_price %></td>
+      <td><%= deal.deal_price %></td>
+      <td><%= deal.start_date %></td>
+      <td><%= deal.end_date %></td>
+      <td><%= deal.is_on %></td>
+      <td><%= link_to "Show", deal %></td>
+      <td><%= link_to "Edit", edit_deal_path(deal) %></td>
+      <td><%= link_to "Destroy", deal, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+

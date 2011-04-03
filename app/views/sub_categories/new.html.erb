@@ -1,0 +1,12 @@
+<% title "New Sub Category" %>
+<p>
+	Enter sub-categories for the category <strong><%= @category.name%></strong>
+</p>
+<p>
+	Existing items in this category <br \>
+	<% for sub_cat in @category.sub_categories %>
+		<%= sub_cat.name %><br \>
+	<% end %>
+</p>
+
+<%= render 'form' %>

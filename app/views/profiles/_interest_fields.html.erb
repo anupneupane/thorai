@@ -1,0 +1,6 @@
+<p class="fields">
+  <%= f.label :name, 'Hobby' %><br />
+  <%= f.text_field :name %>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to_function "remove", "remove_fields(this)" %>
+</p>

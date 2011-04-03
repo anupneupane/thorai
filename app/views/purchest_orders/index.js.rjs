@@ -1,0 +1,2 @@
+past.insert_html :bottom, :orders
+page.call 'checkScroll' if @orders.total_pages > @orders.current_page

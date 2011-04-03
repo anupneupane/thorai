@@ -1,0 +1,48 @@
+<h2>Sign up</h2>
+
+<div id="main-content"><!-- main content begins here -->
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
+	  <%= devise_error_messages! %>
+		<%= error_messages_for resource  %>
+
+		<%= f.hidden_field :invitation_token %>
+	
+		<div id="first-name">
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
+		</div>
+
+		<div id="last-name">
+	    <%= f.label :last_name %>
+	    <%= f.text_field :last_name %>
+		</div>
+
+		<div id="user-email">
+			<%= f.label :email %>
+		  <%= f.text_field :email %>
+		</div>
+
+		<div id="user-pass">
+			<%= f.label :password %>
+		  <%= f.password_field :password %>
+		</div>
+		
+		<div id="confirm-pass">
+			<%= f.label :password_confirmation %><br />
+			<%= f.password_field :password_confirmation %>
+		</div>
+		
+		<div id="submit-button">
+			<%= f.submit "Sign up" %>
+		</div>
+		
+		<div class="password-links">
+			<%= render :partial => "devise/shared/links" %>
+		</div>
+		
+	<% end %>
+</div><!-- main content ends here -->
+
+	<%= render :partial => "layouts/sidebar" %>
+	<div class="clear"></div>
+  </div>

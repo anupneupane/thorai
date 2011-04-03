@@ -1,0 +1,28 @@
+<% title "Purchest Orders" %>
+
+<table>
+	<table>
+	  <tr>
+	    <th>User</th>
+	    <th>Deal Title</th>
+			<th>Unit Price</th>
+	    <th>Quantity</th>
+	    <th>Total</th>
+	    <th>Processed</th>
+	  </tr>
+	<% for order in @placed_orders %>
+      <% for line_item in order.line_items %>
+				<p>
+					<tr>
+						<td><%= order.user.email %></td>
+						<td><%= line_item.deal.title %></td>
+						<td><%= number_to_currency(line_item.deal.deal_price, :precision => 0) %></td>
+						<td><%= line_item.quantity %></td>
+						<td><%= number_to_currency(line_item.total_price) %></td>
+						<td><%= order.processed ? 'Yes' : 'No'  %></td>
+						<td><%= link_to 'Process Now' ,:action => :process_order, :order_id  =>  order.id, :line_item_id => line_item.id %></td>
+					</tr>
+				</p>
+			<% end %>
+	<% end %>
+</table>

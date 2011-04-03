@@ -1,0 +1,11 @@
+one:
+  user_id: 1
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2011-02-06
+
+two:
+  user_id: 1
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2011-02-06

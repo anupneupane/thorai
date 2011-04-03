@@ -1,0 +1,23 @@
+<% title "Category" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %><br /><br />
+	<p>
+		<strong>Sub-categories</strong>
+	</p>
+	<% for sub_category in @sub_categories %>
+		<p>
+			<%= sub_category.name %>
+		</p>
+  <% end %>
+	
+</p>
+
+<p>
+  | <%= link_to "Edit", edit_category_path(@category) %> |
+  <%= link_to "Destroy", @category, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", categories_path %> |
+	<%= link_to 'Add a SubCategory Item', new_category_sub_category_path(@category) %> |
+
+</p>

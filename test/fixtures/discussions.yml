@@ -1,0 +1,9 @@
+one:
+  user_id: 1
+  deal_id: 1
+  comment: MyString
+
+two:
+  user_id: 1
+  deal_id: 1
+  comment: MyString

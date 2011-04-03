@@ -1,0 +1,22 @@
+<%= form_for @merchant, :html => { :multipart => true } do |f| %>
+  
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+	<br/>
+	<p>
+		Category <%= f.select :sub_category_id, @sub_categories.map {|sc| [sc.name,sc.id]} %>
+  </p>
+	<br /> 
+	<p>
+		<%= f.file_field :picture %>
+	</p>
+	<br />
+	<%= f.fields_for :contact_informations do |builder| %>
+		<%= render 'contact_fields', :f => builder %>
+	<% end %>
+	
+	<br />
+  <p><%= f.submit %></p>
+<% end %>

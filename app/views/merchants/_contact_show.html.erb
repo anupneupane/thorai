@@ -1,0 +1,9 @@
+<p>
+  <%= contact_info.email %>
+</p>
+<p>
+  <%= contact_info.phone %>
+</p>
+
+
+	<%= render :partial => "contact_show", :locals => { :addr => @contact_info.address } %>

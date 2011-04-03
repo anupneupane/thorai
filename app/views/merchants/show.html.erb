@@ -1,0 +1,43 @@
+<% title "Merchant" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @merchant.name %>
+</p>
+<p>
+	<%= image_tag @merchant.picture.url %>
+</p>
+<p>
+  <b>Category:</b>
+  <%= @sub_category.name %>
+</p>
+<% for contact_info in @merchant.contact_informations %>
+	<!--%= render :partial => "contact_show", :locals => { :contact_info => @contact_info } %-->
+	<p>
+	  <%= contact_info.email %>
+	</p>
+	<p>
+	  <%= contact_info.phone %>
+	</p>
+	<p>
+	  <b>Street address:</b>
+	  <%= contact_info.address.street_address %>
+	</p>
+	<p>
+	  <b>City:</b>
+	  <%= contact_info.address.city %>
+	</p>
+	<p>
+	  <b>State:</b>
+	  <%= contact_info.address.state %>
+	</p>
+	<p>
+	  <b>Zip code:</b>
+	  <%= contact_info.address.zip_code %>
+	</p>
+<% end %>	
+<p>
+  <%= link_to "Edit", edit_merchant_path(@merchant) %> |
+  <%= link_to "Destroy", @merchant, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", merchants_path %>
+</p>

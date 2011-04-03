@@ -1,0 +1,559 @@
+/*
+	Author: Prawesh Rajkarnikar
+	Company: YoungInnovations (http://yipl.com.np)
+*/
+
+body  {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	/*background: #fdcd01*/
+	color: #222;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color:#126585;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#126585;
+	text-decoration:underline;
+}
+
+h2, h3 {
+	font-family: Arvo, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+	color: #5d6f76;
+	font-size: 30px;
+	font-weight: normal;
+	margin: 5px 0 14px;
+}
+
+h3 {
+	color: #5d6f76;
+	font-size: 22px;
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#container { 
+	width: 940px;
+	margin: 0 auto; 
+	padding-bottom: 130px;
+}
+
+#wrapper {
+	background: #f6f9e1 url(../images/header-bg.jpg) repeat-x left top;
+}
+
+/** header **/
+	/** Logo **/
+.logo {
+	background: url(../images/logo.jpg) no-repeat left 5px;
+	float: left;
+	width: 310px;
+	height: 127px;
+}
+.logo a {
+	display: block;
+	height: 127px;
+	text-indent: -9999px;
+}
+
+	/** header menu and other content **/
+.header-content {
+	float: right;
+	width: 630px;
+}
+
+.mainMenu {
+	overflow: hidden;
+}
+
+.mainMenu ul {
+	padding-left: 55px;
+	margin: 0;
+}
+
+.mainMenu li {
+	list-style:none;
+	display:block;
+	float: left;
+	padding-bottom: 8px;
+}
+.mainMenu a {
+	border-top: 5px solid #126585;
+	color:#0277a5;
+	display: block;
+	font-size:18px;
+	height: 45px;
+	padding: 0 11px;
+	line-height: 42px;
+	text-decoration:none;
+	margin-bottom: 8px;
+}
+.mainMenu a:hover {
+	background: url(../images/primary-link-bg.png) no-repeat center top;
+	border-top: 5px solid #2594bf;
+	color:#fff;
+	margin-bottom: 0; 
+}
+
+.mainMenu .active a {
+	background: url(../images/primary-link-bg.png) no-repeat center top;
+	border-top: 5px solid #2594bf;
+	color:#fff;
+	margin-bottom: 0;
+}
+#header { 
+	background: url(../images/header-full-bg.jpg) no-repeat left 5px;
+	height: 127px;
+	margin-bottom: 35px;
+} 
+
+	/** header interest block **/
+.email-interest {
+	background: url(../images/interests.png) no-repeat;
+	float: right;
+	width: 370px;
+	height: 38px;
+	padding: 8px 10px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.email-interest {
+	height: 41px;
+	padding: 5px 10px 0 0;
+}
+}
+
+
+.email-interest .email-info {
+	color: #848855;
+	float: left;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 32px;
+	text-align: right;
+	width: 189px;
+}
+
+.interest-wrapper {
+	background-color: #3d3d31;
+	display: block;
+	width: 159px;
+	float: right;
+	padding: 7px 5px 5px 10px;
+}
+
+.interest-wrapper #interests {
+	border: none;
+	background-color: #3d3d31;
+	color: #dee4a4;
+	float: left;
+	width: 130px;
+}
+
+.interest-wrapper #interest-add {
+	background: url(../images/intrest-add.jpg) no-repeat left top;
+	border: none;
+	cursor: pointer;
+	height: 20px;
+	padding: 0;
+	width: 20px;
+	margin-left: 6px;
+}
+
+/** Footer section **/
+#footer-wrapper {
+	background-color: #222222;
+	border-top: 1px solid #eff1cc;
+	height: 83px;
+} 
+
+#footer {
+	width: 940px;
+	margin: 0 auto;
+}
+
+#footer .footerMenu {
+	padding: 0;
+	float: left;
+}
+
+#footer .footerMenu ul {
+	padding-top: 30px;
+	margin: 0;
+}
+
+#footer .footerMenu ul li {
+	display: inline;
+	list-style: none;
+	list-style-image: none;
+	padding-right: 20px;
+}
+
+#footer .footerMenu ul li a {
+	color: #6d6d6d;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+#footer .footerMenu ul li a:hover {
+	color: #ccc;
+	text-decoration: none;
+}
+
+#footer .copyright {
+	color: #4a4a4a;
+	font-size: 13px;
+	float: right;
+	padding-top: 30px;
+}
+
+/** Clear class **/
+.clear {
+	clear: both;
+}
+
+/** main-content **/
+#main-content {
+	width: 620px;
+	margin-right: 10px;
+	float: left;
+}
+
+/** sidebar-right **/
+#sidebar-right {
+	background: #e8ebd0 url(../images/sidebar-top.jpg) repeat-x left top;
+	width: 300px;
+	margin-left: 10px;
+	float: left;
+}
+
+#sidebar-right .block {
+	border-bottom: 1px solid #c7cbab;
+	padding-bottom: 15px;
+	margin-bottom: 10px;
+}
+
+#sidebar-right .content {
+	margin: 0 10px;
+}
+
+
+
+/** body panel content **/
+.center-panel {
+	margin-top: 20px;
+}
+
+.center-panel .left-pane {
+	float: left;
+	margin-right: 10px;
+	width: 200px;
+}
+
+
+.center-panel .content-page {
+	float: left;
+	width: 410px;
+}
+
+.center-panel .content-page p {
+	line-height: 18px;
+}
+
+/** deal list **/
+.view-row {
+	border-bottom: 1px solid #d5d8c0;
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+}
+
+.dealslist .deal-img img{
+	border-top: 8px solid #dee3bc;
+	border-right:9px solid #dee3bc; 
+	border-bottom:8px solid #dee3bc; 
+	border-left:8px solid #dee3bc; 
+}
+
+.dealslist .details {
+	background-color: #f7fcd1;
+	border: 1px solid #e4eda0;
+	margin-top: 17px; 
+	overflow: hidden;
+	text-align: center;
+	padding: 0 0 0 34px;
+	height: 81px;
+}
+
+.dealslist .details label {
+	color: #707261;
+	font-size: 14px;
+}
+
+.dealslist .discount {
+	float: left;
+	padding-top: 10px;
+}
+
+.dealslist .discount .discount-value {
+	color: #126585;
+	font-size: 46px;
+	font-family: Arvo, Arial, Helvetica, sans-serif;
+}
+
+.dealslist .button {
+	float: left;
+	margin-left: 36px;
+	padding-top: 10px;
+}
+
+.dealslist .button input {
+	background: url(../images/add-to-chest.png) no-repeat left center ;
+	border: none;
+	cursor: pointer;
+	float: left;
+	width: 220px;
+	height: 65px;
+}
+
+.dealslist .other-info {
+	background-color: #ebefcf;
+	float: right;
+	height: 56px;
+	padding-top: 25px;
+}
+
+.dealslist .other-info .other-value {
+	float: left;
+	padding: 0 12px;
+}
+
+.dealslist .other-info .other-value .value {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/** sidebar blocks **/
+	/** Incredible deal **/
+#block-1 .deal-img img{
+	border-top: 7px solid #d2d4bb;
+	border-right: 7px solid #d2d4bb;
+	border-bottom: 6px solid #d2d4bb;
+	border-left: 7px solid #d2d4bb;
+}
+
+#block-1 .description {
+	color: #58676c;
+	font-size: 13px;
+	line-height: 18px;
+	padding: 15px 0 10px;
+}
+
+	/** past awesome deals block**/
+#block-2 .deal-img {
+	margin-bottom: 20px;
+}
+
+#block-2 .deal-img img {
+	border: 6px solid #87898b;
+}
+
+/** login form **/
+#login-wrapper #email-wrapper,
+#login-wrapper #password-wrapper,
+#user_new #first-name,
+#user_new #last-name,
+#user_new #user-email,
+#user_new #user-pass,
+#user_new #confirm-pass {
+	margin-bottom: 16px;
+}
+
+#login-wrapper label {
+	color: #707261;
+	display: block;
+	float: left;
+	clear: left;
+	font-size: 22px;
+	width: 120px;
+	line-height: 44px;
+}
+
+#user_new label {
+	color: #707261;
+	display: block;
+	float: left;
+	clear: left;
+	font-size: 22px;
+	width: 235px;
+	line-height: 44px;
+}
+
+#login-wrapper input,
+#user_new input {
+	border: 1px solid #707261;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	font-size: 16px;
+	height: 42px;
+	width: 298px;
+	padding: 0 5px;
+}
+
+
+#login-wrapper #other-info {
+	margin-left: 120px;
+	margin-bottom: 16px;
+}
+
+#login-wrapper #other-info input {
+	float: left;
+	width: auto;
+	height: auto;
+}
+
+#login-wrapper #other-info label {
+	display: inline;
+	line-height: 17px;
+	margin-right: 30px;
+	font-size: 12px;
+	width: auto;
+	float: none;
+}
+
+#login-wrapper #signup-wrapper input {
+	border: none;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	background-color: #126585;
+	color: #fff;
+	cursor: pointer;
+	line-height: 43px;
+	margin-left: 120px;
+	text-align: center;
+	height: 43px;
+	width: 140px;
+	font-size: 24px;
+}
+
+#user_new #submit-button input {
+	border: none;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	background-color: #126585;
+	color: #fff;
+	cursor: pointer;
+	line-height: 43px;
+	margin-left: 235px;
+	text-align: center;
+	height: 43px;
+	width: 140px;
+	font-size: 24px;
+}
+
+.password-links ul {
+	padding: 0;
+	margin-left: 235px;
+}
+
+.password-links ul li {
+	display: inline;
+	padding-right: 10px;
+}
+
+#whatwe-do {
+	background-color: #3d3e32;
+	width: 640px;
+	padding: 10px 17px 40px 24px;
+}
+
+#whatwe-do .close-button {
+	background: url(images/close-button.png) no-repeat right top;
+	color: #8b8d74;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 27px;
+	text-align: right;
+	height: 27px;
+	padding-right: 30px;
+}
+
+#whatwe-do form .category-wrapper {
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#whatwe-do form .category {
+	float: left;
+	width: 160px;
+	margin-right:32px;
+}
+
+#whatwe-do form .category-last {
+	clear: right;
+}
+
+#whatwe-do form .label {
+	color: #fff;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+#whatwe-do form .items {
+	color: #dbe3a5;
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 10px;
+}
+
+#whatwe-do form .items input {
+	clear: left;
+	float: left;
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+#whatwe-do form .items .input-label {
+	margin-top: 3px;
+}
+
+#whatwe-do form #email-wrapper {
+	clear: both;
+	background: url(images/puchest-logo.jpg) no-repeat 466px center;right
+}
+
+#whatwe-do form #email-wrapper #email {
+	background-color: #f7fcd2;
+	border: none;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	color: #3d3e32;
+	font-size: 14px;
+	height: 29px;
+	line-height: 29px;
+	padding: 0 5px;
+	margin-right: 10px;
+}
+
+#whatwe-do form #email-wrapper #submit {
+	background: url(images/subscribe.jpg) no-repeat;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	width: 108px;
+	height: 29px;
+	line-height: 29px;
+	
+}
+
+.field_with_errors label {
+	font-size: 8px;
+	color: #0;
+}

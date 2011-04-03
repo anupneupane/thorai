@@ -1,0 +1,16 @@
+<% title "Sub Category" %>
+
+<p>
+  <strong>Category:</strong>
+  <%= @sub_category.category %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @sub_category.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_sub_category_path(@sub_category) %> |
+  <%= link_to "Destroy", @sub_category, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", sub_categories_path %>
+</p>

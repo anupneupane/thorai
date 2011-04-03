@@ -1,0 +1,87 @@
+<%= form_tag :controller => "home", :action => "purchase_complete", :method => "post" do %>
+	<h3>Your Purchase</h3>
+	<table>
+	  <tr>
+	    <th>Description</th>
+	    <th>Quantity</th>
+	    <th>Price</th>
+	    <th></th>
+	    <th>Total</th>
+	  </tr>
+	   <tr>
+	     <td><%= @purchase_deal.title %></td>
+	     <td> <%= text_field_tag :quantity, 1 %></td>
+	     <td><%= number_to_currency(@purchase_deal.deal_price) %></td>
+	     <td>=</td>
+			<td><%= number_to_currency(@total_price) %></td>
+	   </tr>
+	</table>
+
+	<br />
+
+	<strong><h3>Select Payment Method</h3></strong>
+
+	<br />
+
+	<% if !user_signed_in? %>
+		<p>
+			Already a purchest user? <%= link_to "Sign in", new_user_session_path %>
+		</p>
+		<strong><p>Personal Information</p></strong>
+		<p>
+			First Name <br />
+			<%= text_field_tag :first_name %>
+		</p>
+		<p>Last Name<br />
+			<%= text_field_tag :last_name %>
+		</p>
+		<p>Email<br />
+			<%= text_field_tag :user_email %>
+		</p>
+		<p>Password<br />
+			<%= password_field_tag :password %>
+		</p>
+		<p>Confirm<br />
+			<%= password_field_tag :confirm %>
+		</p>
+	<% end %>
+	<br />
+
+	<h3>Billing Information</h3>
+	<p>
+		Cardholder Name<br />
+		<%= text_field_tag :card_holder_name %>
+	</p>
+	<p>Card Number<br />
+		<%= text_field_tag :card_number %>
+	</p>
+	<p>Security Code<br />
+		<%= text_field_tag :security_code %>
+	</p>
+	<p>Expiration Date<br />
+		<%= select_month(Date.today, :field_name => :exp_month) %>
+		<%= select_year(Date.today, :field_name => :exp_year, :start_year => Date.today.year, :end_year => Date.today.year + 10) %>
+		
+	</p>
+	<p>
+		Billing Address<br />
+		<%= text_field_tag :street_address %>
+	</p>
+	<p>City<br />
+		<%= text_field_tag :city %>
+	</p>
+	<p>State<br />
+		<%= select_tag :state, options_for_select(states) %>
+	</p>
+	<p>Zip Code<br />
+		<%= text_field_tag :zip_code %>
+	</p>
+	<p>
+		<% if user_signed_in? %>
+			<%= check_box_tag 'save_billing_info' %> Save Payment Info
+		<% else %>
+			<%= check_box_tag 'save_billing_info', 'save_billing_info', false, :disabled => true %> Save Payment Info
+		<% end %>
+	</p>
+	<%= submit_tag "Complete Order" %>
+<% end %>
