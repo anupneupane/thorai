@@ -37,8 +37,6 @@ GEM
     braintree (2.6.3)
       builder
     builder (2.1.2)
-    client_side_validations (3.0.0.beta.3)
-      activesupport (~> 3.0.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -90,7 +88,6 @@ PLATFORMS
 
 DEPENDENCIES
   activemerchant (~> 1.9.0)
-  client_side_validations (= 3.0.0.beta.3)
   devise
   dynamic_form
   haml (~> 3.0.18)
