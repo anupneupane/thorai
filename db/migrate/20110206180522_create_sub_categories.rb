@@ -1,7 +1,7 @@
 class CreateSubCategories < ActiveRecord::Migration
   def self.up
     create_table :sub_categories do |t|
-      t.integer :sub_category_id
+      t.integer :category_id
       t.string :name
       t.timestamps
     end

@@ -2,9 +2,9 @@ class CreateContactInformations < ActiveRecord::Migration
   def self.up
     create_table :contact_informations do |t|
       t.integer :profile_id
+      t.integer :merchant_id
       t.string :email
       t.string :phone
-
       t.timestamps
     end
   end

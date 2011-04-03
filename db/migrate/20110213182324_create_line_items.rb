@@ -5,6 +5,8 @@ class CreateLineItems < ActiveRecord::Migration
       t.integer :chest_id
       t.integer :order_id
       t.integer :quantity
+      t.string :status
+      
       t.timestamps
     end
   end
