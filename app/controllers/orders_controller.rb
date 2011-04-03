@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
       if true 
 
       else
+=begin
         @card_info = CardPayment.new
         @card_info.cardholder_name = params[:card_holder_name]
         @card_info.card_number = params[:card_number]
@@ -51,11 +52,12 @@ class OrdersController < ApplicationController
         @card_info.exp_year = params[:exp_year]
         @card_info.security_code = params[:security_code]
 
-        if sav[e_payment_information?
+        if save_payment_information?
           @card_info.save
           @order.card_payment_id = @card_info.id
         end
         # Todo: Process payment here
+=end        
       end
     else
       # create a new user
