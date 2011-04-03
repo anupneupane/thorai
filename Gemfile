@@ -39,5 +39,4 @@ gem "mocha", :group => :test
 gem 'will_paginate', '>= 3.0.pre2'
 gem 'activemerchant', '~> 1.9.0'
 gem 'haml', '~> 3.0.18'
-gem 'client_side_validations', '3.0.0.beta.3'
 gem 'dynamic_form'
