@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     #puts "IP Addressof the computer"
     #puts request.env['REMOTE_ADDR']
     #cookies.delete :_purchest_returning_user
+    puts "S3 Key"
+    puts ENV['S3_KEY']
     if returning_user?
       @chest = current_chest
       if user_signed_in?
