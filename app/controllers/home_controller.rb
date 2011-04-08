@@ -4,14 +4,13 @@ class HomeController < ApplicationController
     #puts "IP Addressof the computer"
     #puts request.env['REMOTE_ADDR']
     #cookies.delete :_purchest_returning_user
-    puts "S3 Key"
-    puts ENV['S3_KEY']
+
     if returning_user?
       @chest = current_chest
       if user_signed_in?
         @user = current_user
-        if !current_user.profile.nil?
-          @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
+        if !current_user.profile.nil? && !current_user.profile.user_interests.empty?
+            @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
         else
           @active_deals = Deal.still_active(DateTime.now)
         end
@@ -19,11 +18,11 @@ class HomeController < ApplicationController
         @active_deals = Deal.still_active(DateTime.now)
       end
 
-      @merchants = Array.new
-      @active_deals.each do |d|
-        @merchant = Merchant.find_by_id(d.merchant_id)
-        @merchants << @merchant
-      end
+      #@merchants = Array.new
+      #@active_deals.each do |d|
+        #@merchant = Merchant.find_by_id(d.merchant_id)
+        #@merchants << @merchant
+      #end
     else
       cookies.permanent[:_purchest_returning_user] = "t"
       redirect_to subscriptions_new_url

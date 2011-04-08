@@ -1,6 +1,6 @@
 class DiscussionsController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:create]
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
     @discussions = Discussion.all
@@ -18,7 +18,6 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.new
     @discussion.user = current_user
     @discussion.deal = Deal.find(params[:discussion][:deal_id])
-
     @discussion.comment = params[:discussion][:comment]
     if @discussion.save
       flash[:notice] = "Thank you for the discussion."

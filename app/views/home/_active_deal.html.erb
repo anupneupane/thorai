@@ -1,7 +1,7 @@
 <div class="view-row">
 	<div class="dealslist">
 		
-		<% form_for LineItem.new(:deal_id => active_deal.id) do |f| %>
+		<%= form_for LineItem.new(:deal_id => active_deal.id) do |f| %>
 		<%= f.hidden_field :deal_id %>
 			<h2><%= link_to active_deal.title, deal_path(active_deal) %></h2>
 			<div class="deal-img">

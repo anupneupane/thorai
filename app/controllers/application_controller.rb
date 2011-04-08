@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
     #end
   
     def returning_user?
-      puts "New User"
       if cookies[:_purchest_returning_user] == "t"
         true
       end

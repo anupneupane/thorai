@@ -7,9 +7,8 @@
   </tr>
   <% for merchant in @merchants %>
     <tr>
-      <td><%= merchant.sub_category_id %></td>
-      <td><%= merchant.name %></td>
-      <td><%= link_to "Show", merchant %></td>
+      <td><%= link_to merchant.name, merchant %></td>
+      <td><%= merchant.sub_category.name %></td>
       <td><%= link_to "Edit", edit_merchant_path(merchant) %></td>
       <td><%= link_to "Destroy", merchant, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
