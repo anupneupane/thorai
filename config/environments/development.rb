@@ -26,6 +26,9 @@ Purchest::Application.configure do
   # change localhost:3000 to your website domain
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
+  require 'rack/ssl'
+  config.middleware.use Rack::SSL
+  
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
   end

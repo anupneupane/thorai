@@ -1,5 +1,7 @@
 Purchest::Application.routes.draw do
   
+  ROUTES_PROTOCOL = (ENV["RAILS_ENV"] =~ /development/ ? "http" : "https")
+  
   resources :discussions
   resources :invitations
   resources :orders

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :delete_session_purchase
-  include SslRequirement
+  #include SslRequirement
   #before_filter :prepare_for_mobile
     
   protected
