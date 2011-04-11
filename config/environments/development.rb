@@ -24,7 +24,7 @@ Purchest::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
   
   # change localhost:3000 to your website domain
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'radiant-meadow-885.heroku.com'} #'localhost:3000' }
   
   require 'rack/ssl'
   config.middleware.use Rack::SSL
