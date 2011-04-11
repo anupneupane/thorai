@@ -1,3 +1,4 @@
+=begin
 class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders do |t|
@@ -12,3 +13,4 @@ class CreateOrders < ActiveRecord::Migration
     drop_table :orders
   end
 end
+=end
