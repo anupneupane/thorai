@@ -11,6 +11,7 @@ $(function(){
 	//$("#profile_birth_date").datepicker();
 	$("#new_subscription").showSubscriptionModalDialog();
 	$("#new_subscription").submitForm();
+	//$("#new_subscription").closeModalDialog();
 	$("#deal_preview").dealPreview();
 })
 
@@ -43,7 +44,11 @@ jQuery.fn.showSubscriptionModalDialog = function(){
 			modal:true, 
 			width:'auto',
 			height:'auto',
-			title: 'New to Purchest? Subscribe to deals that interest you!'
+			title: 'New to Purchest? Subscribe to deals that interest you!',
+			
+			close: function(event, ui) {
+				top.location.href = 'http://localhost:3000/';
+			}
 		}
 	)
 }
@@ -58,3 +63,9 @@ jQuery.fn.showDealPreviewDialog = function(){
 		}
 	)
 }
+
+//jQuery.fn.closeModalDialog = function(){
+	//this.close({
+		
+	//})
+//}

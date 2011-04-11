@@ -1,5 +1,11 @@
-one:
-  user_id: 1
-
-two:
-  user_id: 1
+pending:
+  state: pending
+    
+authorized:
+  state: authorized
+    
+uncapturable: 
+  state: authorized
+  
+uncapturable_error:
+  state: authorized

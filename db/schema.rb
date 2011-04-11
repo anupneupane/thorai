@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110326164039) do
+ActiveRecord::Schema.define(:version => 20110410223234) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "contact_information_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20110326164039) do
   create_table "deals", :force => true do |t|
     t.integer  "merchant_id"
     t.string   "title"
-    t.string   "description"
+    t.text     "description",     :limit => 255
     t.float    "original_price"
     t.float    "deal_price"
     t.datetime "start_date"
@@ -132,12 +132,25 @@ ActiveRecord::Schema.define(:version => 20110326164039) do
     t.datetime "picture_updated_at"
   end
 
+  create_table "order_transactions", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "reference"
+    t.string   "message"
+    t.string   "action"
+    t.text     "params"
+    t.boolean  "test"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.integer  "card_payment_id"
+    t.string   "state",           :default => "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "processed"
   end
 
   create_table "profiles", :force => true do |t|

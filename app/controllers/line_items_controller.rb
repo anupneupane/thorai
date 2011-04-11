@@ -1,4 +1,7 @@
 class LineItemsController < ApplicationController
+  
+  before_filter :authenticate_admin!, :only => :index
+  
   def index
     @line_items = LineItem.all
   end
@@ -43,6 +46,6 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     flash[:notice] = "Successfully destroyed line item."
-    redirect_to line_items_url
+    redirect_to home_index_url
   end
 end

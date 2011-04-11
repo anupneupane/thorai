@@ -1,5 +1,7 @@
 class ChestsController < ApplicationController
 
+  before_filter :authenticate_admin!, :only => :index
+
   def index
     @chests = Chest.all
   end

@@ -26,5 +26,16 @@ Purchest::Application.configure do
   # change localhost:3000 to your website domain
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+  end
+  
+  config.to_prepare do
+    OrderTransaction.gateway = ActiveMerchant::Billing::BraintreeGateway.new(
+                                  :login => '',
+                                  :password => '' 
+                                )
+  end
+  
 end
 
