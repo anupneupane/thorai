@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   cattr_reader :per_page
   attr_accessor :card_first_name, :card_last_name, :card_number, :card_verification
-  validate_on_create :validate_card
+#  validate_on_create :validate_card
   @@per_page = 100  
   
   attr_accessible :user_id
@@ -19,6 +19,7 @@ class Order < ActiveRecord::Base
     (current_chest.total_price * 100).round
   end
   
+=begin
   def validate_card
     unless credit_card.valid?
       credit_card.errors.full_messages.each do |message|
@@ -26,6 +27,7 @@ class Order < ActiveRecord::Base
       end
     end
   end
+=end
 
   def credit_card
     @credit_card = ActiveMerchant::Billing::CreditCard.new(

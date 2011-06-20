@@ -73,20 +73,20 @@ class OrdersController < ApplicationController
       end
     end
 =end
-    if @order.save
-      if @order.purchase
+      if @order.credit_card.valid?# save
+      #if @order.purchase
         puts "purchase complete"
       else
         puts "purchase failure"
       end
       
-      Chest.destroy(session[:chest_id])
-      session.delete :chest_id
-      flash[:notice] = "Successfully created order."
-      redirect_to @order
-    else
-      render :action => 'new'
-    end
+      #Chest.destroy(session[:chest_id])
+      #session.delete :chest_id
+      #flash[:notice] = "Successfully created order."
+      #redirect_to @order
+    #else
+      #render :action => 'new'
+    #end
   end
 
   def edit
