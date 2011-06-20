@@ -28,7 +28,7 @@ class Order < ActiveRecord::Base
   end
 
   def credit_card
-    @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
+    @credit_card = ActiveMerchant::Billing::CreditCard.new(
       :type               => card_type,
       :number             => card_number,
       :verification_value => card_verification,
@@ -37,6 +37,7 @@ class Order < ActiveRecord::Base
       :first_name         => card_first_name,
       :last_name          => card_last_name
     )
+    return @credit_card
   end
   
   def add_line_items_from_chest(chest)
