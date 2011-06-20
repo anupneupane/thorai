@@ -83,7 +83,7 @@ class OrdersController < ApplicationController
       #Chest.destroy(session[:chest_id])
       #session.delete :chest_id
       #flash[:notice] = "Successfully created order."
-      #redirect_to @order
+      redirect_to @order
     #else
       #render :action => 'new'
     #end
