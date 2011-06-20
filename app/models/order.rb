@@ -26,7 +26,7 @@ class Order < ActiveRecord::Base
       end
     end
   end
-  
+
   def credit_card
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
       :type               => card_type,
