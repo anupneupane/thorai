@@ -24,7 +24,7 @@ class DiscussionsController < ApplicationController
       respond_to do |format|
         format.html {redirect_to @discussion.deal}
         format.js
-      end      
+      end    
     end
   end
 

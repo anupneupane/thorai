@@ -49,10 +49,11 @@ Purchest::Application.configure do
   
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :production
-    OrderTransaction.gateway = ActiveMerchant::Billing::BraintreeGateway.new(
-                                  :login => 'login',
-                                  :password => 'password'
-                                )
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    	:login => "vinaya_1308408534_biz_api1.gmail.com",
+    	:password => "ZF6HJPRUNZ2KK9G3",
+    	:signature => "Ai3xbkJ1IfQgDhjwJH6NO9WXYTfuAlkTef84gG3zUIyIXej2rf3nPq44"
+    )
   end
   
 end

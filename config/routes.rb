@@ -1,6 +1,6 @@
 Purchest::Application.routes.draw do
   
-  ROUTES_PROTOCOL = (ENV["RAILS_ENV"] =~ /development/ ? "http" : "https")
+  #ROUTES_PROTOCOL = (ENV["RAILS_ENV"] =~ /development/ ? "http" : "http")
   
   resources :discussions
   resources :invitations
@@ -31,7 +31,7 @@ Purchest::Application.routes.draw do
     get "/users/show_user_account", :to => "users/registrations#show_user_account" #, :as => 'account'
     get '/users/sign_up/:invitation_token', :to => 'users/registrations#new'
   end
-  
+
   root :to => "home#index" #, :as => 'home'
-  
+
 end

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/daily_deal_mailing.rb</string>
+	<string>app/models/order.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -18,46 +18,76 @@
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
-	<integer>212</integer>
+	<integer>239</integer>
 	<key>metaData</key>
 	<dict>
-		<key>app/models/daily_deal_mailing.rb</key>
+		<key>app/controllers/home_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>8</integer>
 				<key>line</key>
-				<integer>16</integer>
+				<integer>54</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>41</integer>
 		</dict>
-		<key>db/schema.rb</key>
+		<key>app/controllers/orders_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>19</integer>
+				<integer>12</integer>
 				<key>line</key>
-				<integer>75</integer>
+				<integer>37</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>58</integer>
+			<integer>27</integer>
+		</dict>
+		<key>app/models/order.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>33</integer>
+				<key>line</key>
+				<integer>18</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>2</integer>
+		</dict>
+		<key>app/views/orders/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>4</integer>
+				<key>line</key>
+				<integer>58</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>56</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>db/schema.rb</string>
-		<string>app/models/daily_deal_mailing.rb</string>
+		<string>app/controllers/home_controller.rb</string>
+		<string>app/views/orders/new.html.erb</string>
+		<string>app/models/order.rb</string>
+		<string>app/controllers/orders_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{227, 262}, {800, 516}}</string>
+	<string>{{571, 117}, {800, 516}}</string>
 </dict>
 </plist>

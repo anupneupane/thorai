@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110410223234) do
+ActiveRecord::Schema.define(:version => 20110620035711) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "contact_information_id"
@@ -147,10 +147,11 @@ ActiveRecord::Schema.define(:version => 20110410223234) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "card_payment_id"
-    t.string   "state",           :default => "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip_address"
+    t.string   "card_type"
+    t.date     "card_expires_on"
   end
 
   create_table "profiles", :force => true do |t|

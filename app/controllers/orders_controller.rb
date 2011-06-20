@@ -28,8 +28,9 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @order.add_line_items_from_chest(current_chest)
-    @order.processed = false
+    @order.ip_address = request.remote_ip
     
+=begin    
     if user_signed_in?
       @order.user_id = current_user.id
       if use_invitation_fund?
@@ -38,26 +39,6 @@ class OrdersController < ApplicationController
         else
           
         end
-      end
-      
-      # Todo: condition that says pay using existing credit card
-      if true 
-
-      else
-=begin
-        @card_info = CardPayment.new
-        @card_info.cardholder_name = params[:card_holder_name]
-        @card_info.card_number = params[:card_number]
-        @card_info.exp_month = params[:exp_month]
-        @card_info.exp_year = params[:exp_year]
-        @card_info.security_code = params[:security_code]
-
-        if save_payment_information?
-          @card_info.save
-          @order.card_payment_id = @card_info.id
-        end
-        # Todo: Process payment here
-=end        
       end
     else
       # create a new user
@@ -91,8 +72,14 @@ class OrdersController < ApplicationController
         end
       end
     end
-    
+=end
     if @order.save
+      if @order.purchase
+        puts "purchase complete"
+      else
+        puts "purchase failure"
+      end
+      
       Chest.destroy(session[:chest_id])
       session[:chest_id] = nil
       flash[:notice] = "Successfully created order."

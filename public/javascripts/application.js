@@ -47,7 +47,7 @@ jQuery.fn.showSubscriptionModalDialog = function(){
 			title: 'New to Purchest? Subscribe to deals that interest you!',
 			
 			close: function(event, ui) {
-				top.location.href = 'https://radiant-meadow-885.heroku.com/';//http://localhost:3000/';
+				top.location.href = 'http://localhost:3000/'; //'https://radiant-meadow-885.heroku.com/'; 
 			}
 		}
 	)

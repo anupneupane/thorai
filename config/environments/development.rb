@@ -26,11 +26,17 @@ Purchest::Application.configure do
   # change localhost:3000 to your website domain
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
-  require 'rack/ssl'
-  config.middleware.use Rack::SSL
+#  require 'rack/ssl'
+#  config.middleware.use Rack::SSL
   
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
+    
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    	:login => "vinaya_1308408534_biz_api1.gmail.com",
+    	:password => "ZF6HJPRUNZ2KK9G3",
+    	:signature => "Ai3xbkJ1IfQgDhjwJH6NO9WXYTfuAlkTef84gG3zUIyIXej2rf3nPq44"
+    )
   end
   
   config.to_prepare do

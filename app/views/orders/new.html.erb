@@ -1,11 +1,7 @@
-<%= form_tag '/orders' do %>
+<%= form_for @order do |f| %>
 
 	<table>
-	  <tr>
-
-	  </tr>
 	   	<%= render @cur_chest.line_items %>
-
 			<tr>
 				<td colspan="2">Total</td>
 				<td><%= number_to_currency(@cur_chest.total_price) %></td>
@@ -53,26 +49,28 @@
 	<h3>Billing Information</h3>
 	
 	<p>
-		Cardholder Name<br />
-		<%= text_field_tag :card_holder_name %>
+		First Name<br />
+		<%= f.text_field :card_first_name %>
+	</p>
+	<p>
+		Last Name<br />
+		<%= f.text_field :card_last_name %>
+	</p>
+	<p>
+		Card Type<br />
+		<%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
 	</p>
 	<p>
 		Card Number<br />
-		<%= text_field_tag :card_number %>
+		<%= f.text_field :card_number %>
 	</p>
 	<p>
 		Security Code<br />
-		<%= text_field_tag :security_code %>
+		<%= f.text_field :card_verification %>
 	</p>
 	<p>
 		Expiration Date<br />
-		<%= select_month(Date.today, :field_name => :exp_month) %>
-		<%= select_year(Date.today, 
-										:field_name => :exp_year,
-										:start_year => Date.today.year,
-										:end_year => Date.today.year + 10) %>
-	</p>
-	
+		<%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year + 10), :add_month_numbers => true %>
 	<p>
 		Billing Address<br />
 		<%= text_field_tag :street_address %>
@@ -89,9 +87,7 @@
 		Zip Code<br />
 		<%= text_field_tag :zip_code %>
 	</p>
-	<p>
-		<%= check_box_tag 'save_billing_info' %> Save Payment Info
-	</p>
+
 	
 	<%= submit_tag "Complete Order" %>
 	
