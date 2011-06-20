@@ -31,15 +31,14 @@ class Order < ActiveRecord::Base
 
   def credit_card
     @credit_card = ActiveMerchant::Billing::CreditCard.new(
-      :type               => card_type,
-      :number             => card_number,
-      :verification_value => card_verification,
-      :month              => card_expires_on.month,
-      :year               => card_expires_on.year,
-      :first_name         => card_first_name,
-      :last_name          => card_last_name
+      :type               => "visa",
+      :number             => "4024007148673576",
+      :verification_value => "123",
+      :month              => 1,
+      :year               => 2012,
+      :first_name         => "Ryan",
+      :last_name          => "Bates"
     )
-    return @credit_card
   end
   
   def add_line_items_from_chest(chest)
