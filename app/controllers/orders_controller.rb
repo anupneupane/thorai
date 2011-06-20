@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:create]
+  #before_filter :authenticate_user!, :only => [:create]
   
   def index
     @orders = Order.find_all_by_user_id(current_user.id)
