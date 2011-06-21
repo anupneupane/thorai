@@ -45,6 +45,7 @@ class OrdersController < ApplicationController
             @address.save
           end
         end
+      end
     end
     
     if user_signed_in?
