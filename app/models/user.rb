@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  #validates_uniqueness_of :invitation_id
   
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :invitation_token, :remember_me
   validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation
@@ -19,6 +17,16 @@ class User < ActiveRecord::Base
   
   has_many :discussions, :dependent => :destroy
 #  delegate :comment, :to => :discussion
+  
+  def self.make_user(email, first_name, last_name, password, confirm)
+    @user = User.new
+    @user.email = email
+    @user.first_name = first_name
+    @user.last_name = last_name
+    @user.password = password
+    @user.password_confirmation = confirm
+    @user
+  end
   
   def invitation_token
     invitation.token if invitation

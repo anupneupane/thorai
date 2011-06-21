@@ -29,8 +29,24 @@ class OrdersController < ApplicationController
     @order = Order.new(params[:order])
     @order.add_line_items_from_chest(current_chest)
     @order.ip_address = request.remote_ip
+
+    unless user_signed_in?
+      @user = User.make_user(params[:user_email], params[:first_name], params[:last_name], params[:password], params[:confirm])
+      if @user.save
+        sign_in(@user)
+        @profile = Profile.make_profile(params[:user_email], params[:first_name], params[:last_name])
+        @profile.user_id = @user.id
+        if @profile.save
+          @contact_information = @profile.build_contact_information
+          @contact_information.profile_id = @profile.id
+          if @contact_information.save
+            @address = @contact_information.build_address
+            @address.contact_information_id = @contact_information.id
+            @address.save
+          end
+        end
+    end
     
-=begin    
     if user_signed_in?
       @order.user_id = current_user.id
       if use_invitation_fund?
@@ -39,54 +55,22 @@ class OrdersController < ApplicationController
         else
           
         end
-      end
-    else
-      # create a new user
-      @user = User.new
-      @user.email = params[:user_email]
-      @user.first_name = params[:first_name]
-      @user.last_name = params[:last_name]
-      @user.password = params[:password]
-      @user.password_confirmation = params[:confirm]
-      if @user.save
-        @order.user_id = @user.id
-        sign_in(@user)
+      else
         
-        @profile = Profile.new
-        @contact_information = @profile.build_contact_information
-        @profile.contact_information.email = current_user.email
-
-        @address = @contact_information.build_address
-        
-        @profile.user_id = current_user.id
-        @profile.first_name = current_user.first_name
-        @profile.last_name = current_user.last_name
-
-        if @profile.save
-          flash[:notice] = "Successfully created profile."
-          @contact_information.profile_id = @profile.id
-          if @contact_information.save
-            @address.contact_information_id = @contact_information.id
-            @address.save
-          end
-        end
       end
     end
-=end
-      if @order.credit_card.valid?# save
-      #if @order.purchase
-        puts "purchase complete"
-      else
-        puts "purchase failure"
+    
+    if @order.save
+      if @order.purchase
+        puts "Purchase successful"
       end
-      
-      #Chest.destroy(session[:chest_id])
-      #session.delete :chest_id
-      #flash[:notice] = "Successfully created order."
+      Chest.destroy(session[:chest_id])
+      session.delete :chest_id
+      flash[:notice] = "Successfully created order."
       redirect_to @order
-    #else
-      #render :action => 'new'
-    #end
+    else
+      render :action => 'new'
+    end
   end
 
   def edit
@@ -108,9 +92,6 @@ class OrdersController < ApplicationController
     @order.destroy
     flash[:notice] = "Successfully destroyed order."
     redirect_to orders_url
-  end
-  
-  private
-    
+  end    
   
 end

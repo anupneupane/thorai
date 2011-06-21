@@ -10,20 +10,14 @@ class HomeController < ApplicationController
       @chest = current_chest
       if user_signed_in?
         @user = current_user
-        if !current_user.profile.nil? && !current_user.profile.user_interests.empty?
-            @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
+        unless (current_user.profile.nil? && current_user.profile.user_interests.empty?)
+          @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
         else
           @active_deals = Deal.still_active(DateTime.now)
         end
       else
         @active_deals = Deal.still_active(DateTime.now)
       end
-
-      #@merchants = Array.new
-      #@active_deals.each do |d|
-        #@merchant = Merchant.find_by_id(d.merchant_id)
-        #@merchants << @merchant
-      #end
     else
       cookies.permanent[:_purchest_returning_user] = "t"
       redirect_to subscriptions_new_url
