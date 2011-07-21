@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   #include SslRequirement
   #before_filter :prepare_for_mobile
 
-  #APP_DOMAIN = 'www.thorai.com'
+  APP_DOMAIN = 'www.thorai.com'
 
   def ensure_domain
-    #if request.env['HTTP_HOST'] != APP_DOMAIN
-      # HTTP 301 is a "permanent" redirect
-      #redirect_to "http://#{APP_DOMAIN}", :status => 301
-    #end
+    if request.env['HTTP_HOST'] != APP_DOMAIN
+       HTTP 301 is a "permanent" redirect
+      redirect_to "http://#{APP_DOMAIN}", :status => 301
+    end
   end
     
   protected
