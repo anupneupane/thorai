@@ -7,8 +7,8 @@ development:
   timeout: 5000
   
   #host: localhost
-  #username: purchest_admin
-  #password: purchest_admin
+  #username: thorai_admin
+  #password: thorai_admin
   #socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -21,10 +21,10 @@ test:
   timeout: 5000
 
   #adapter: mysql #sqlite3
-  #database: purchest #db/development.sqlite3
+  #database: thorai #db/development.sqlite3
   #host: localhost
-  #username: purchest_admin
-  #password: purchest_admin
+  #username: thorai_admin
+  #password: thorai_admin
   #socket: /tmp/mysql.sock
   
 production:
@@ -33,8 +33,8 @@ production:
   pool: 5
   timeout: 5000
   #adapter: mysql #sqlite3
-  #database: purchest #db/development.sqlite3
+  #database: thorai #db/development.sqlite3
   #host: localhost
-  #username: purchest_admin
-  #password: purchest_admin
+  #username: thorai_admin
+  #password: thorai_admin
   #socket: /tmp/mysql.sock

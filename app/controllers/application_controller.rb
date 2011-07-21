@@ -1,18 +1,28 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :delete_session_purchase
+  before_filter :ensure_domain
   #include SslRequirement
   #before_filter :prepare_for_mobile
+
+  #APP_DOMAIN = 'www.thorai.com'
+
+  def ensure_domain
+    #if request.env['HTTP_HOST'] != APP_DOMAIN
+      # HTTP 301 is a "permanent" redirect
+      #redirect_to "http://#{APP_DOMAIN}", :status => 301
+    #end
+  end
     
   protected
     def delete_session_purchase
-      session.delete :_purchest_no_session_at_checkout
-      session.delete :_purchest_orders_url
+      session.delete :_thorai_no_session_at_checkout
+      session.delete :_thorai_orders_url
     end
     
     def delete_session_invitation
-      session.delete :_purchest_recipient_email
-      session.delete :_purchest_invitation_token
+      session.delete :_thorai_recipient_email
+      session.delete :_thorai_invitation_token
     end
     
     def delete_chest
@@ -27,7 +37,7 @@ class ApplicationController < ActionController::Base
     #end
   
     def returning_user?
-      if cookies[:_purchest_returning_user] == "t"
+      if cookies[:_thorai_returning_user] == "t"
         true
       end
     end
@@ -47,13 +57,13 @@ class ApplicationController < ActionController::Base
     end
     
     def invited_user_already_signed_up?
-      if User.find_by_email(session[:_purchest_recipient_email])
+      if User.find_by_email(session[:_thorai_recipient_email])
         true
       end
     end
     
     def invitation_token_present?
-      if session[:_purchest_invitation_token]
+      if session[:_thorai_invitation_token]
         true
       end
     end
@@ -71,7 +81,7 @@ class ApplicationController < ActionController::Base
     end
     
     def clear_chest_for_new_session?
-      if session[:_purchest_no_session_at_checkout].nil?
+      if session[:_thorai_no_session_at_checkout].nil?
         true
       end
     end

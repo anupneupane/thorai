@@ -16,14 +16,14 @@
 	
 	<% if invitation_funds_usable? %>
 		<p>
-			<strong>You have accumulated <%= number_to_currency(current_user.invitation_fund) %> by inviting your friends to purchest </strong>
+			<strong>You have accumulated <%= number_to_currency(current_user.invitation_fund) %> by inviting your friends to thorai </strong>
 		</p>
 			<%= check_box_tag 'use_invitation_fund' %> Use Invitation treasure
 	<% end %>
 
 	<% if !user_signed_in? %>
 		<p>
-			Already a purchest user? <%= link_to "Sign in", :id => "sign_in_for_checkout" %> <!--%= link_to "Sign in", new_user_session_path %-->
+			Already a thorai user? <%= link_to "Sign in", :id => "sign_in_for_checkout" %> <!--%= link_to "Sign in", new_user_session_path %-->
 		</p>
 		<strong><p>Personal Information</p></strong>
 		<p>

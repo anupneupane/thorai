@@ -13,6 +13,10 @@ $(function(){
 	$("#new_subscription").submitForm();
 	//$("#new_subscription").closeModalDialog();
 	$("#deal_preview").dealPreview();
+
+	$(".ui-widget-overlay").click(function(){
+	    $(".ui-dialog-titlebar-close").trigger('click');
+	});
 })
 
 jQuery.fn.submitWithAjax = function(){
@@ -44,10 +48,10 @@ jQuery.fn.showSubscriptionModalDialog = function(){
 			modal:true, 
 			width:'auto',
 			height:'auto',
-			title: 'New to Purchest? Subscribe to deals that interest you!',
+			title: 'New to thorai? Subscribe to deals that interest you!',
 			
 			close: function(event, ui) {
-				top.location.href = 'http://localhost:3000/'; //'https://radiant-meadow-885.heroku.com/'; 
+				top.location.href = 'http://thorai.com/'; //'https://radiant-meadow-885.heroku.com/'; 
 			}
 		}
 	)

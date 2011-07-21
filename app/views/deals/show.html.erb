@@ -62,7 +62,7 @@
 
 	<div class="content-page">
 		<h2 class="title">Description</h2>
-		<p><%= @deal.description %></p>
+		<p><%= simple_format(@deal.description) %></p>
 		
 		<h3>Discussions on this deal</h3>
 		<% if @deal.discussions.empty? %>

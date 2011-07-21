@@ -18,7 +18,7 @@ Purchest::Application.routes.draw do
 
   get "admin_tasks/home"  
   get "home/index"
-  get "purchest_orders/index"
+  get "thorai_orders/index"
     
   match '/subscriptions/new' => 'subscriptions#new', :via => :get
   match '/subscriptions' => 'subscriptions#create', :via => :post

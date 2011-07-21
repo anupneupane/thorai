@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
     end
     
     if !user_signed_in?
-      session[:_purchest_no_session_at_checkout] = true
-      session[:_purchest_orders_url] = request.url
+      session[:_thorai_no_session_at_checkout] = true
+      session[:_thorai_orders_url] = request.url
     end
     
     @order = Order.new
@@ -66,7 +66,8 @@ class OrdersController < ApplicationController
         puts "Purchase successful"
       end
       Chest.destroy(session[:chest_id])
-      session.delete :chest_id
+      #session.delete :chest_id
+      session[:chest_id] = nil
       flash[:notice] = "Successfully created order."
       redirect_to @order
     else

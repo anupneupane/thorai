@@ -5,8 +5,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(:invitation_token => params[:invitation_token])
     if @user.invitation
       @user.email = @user.invitation.recipient_email 
-      session[:_purchest_invitation_token] = params[:invitation_token]
-      session[:_purchest_recipient_email] = @user.invitation.recipient_email
+      session[:_thorai_invitation_token] = params[:invitation_token]
+      session[:_thorai_recipient_email] = @user.invitation.recipient_email
     end
   end
 

@@ -3,25 +3,27 @@ class HomeController < ApplicationController
   def index
     #puts "IP Addressof the computer"
     #puts request.env['REMOTE_ADDR']
-    #cookies.delete :_purchest_returning_user
+    #cookies.delete :_thorai_returning_user
     #puts ENV["RAILS_ENV"]
-    
-    if returning_user?
-      @chest = current_chest
-      if user_signed_in?
-        @user = current_user
-        unless (current_user.profile.nil? && current_user.profile.user_interests.empty?)
-          @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
-        else
-          @active_deals = Deal.still_active(DateTime.now)
-        end
+
+    #if returning_user?
+    @chest = current_chest
+    if user_signed_in?
+      @user = current_user
+      unless (current_user.profile.nil? && current_user.profile.user_interests.empty?)
+        @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
       else
         @active_deals = Deal.still_active(DateTime.now)
       end
     else
-      cookies.permanent[:_purchest_returning_user] = "t"
+      @active_deals = Deal.still_active(DateTime.now)
+    end
+    
+    if !returning_user?
+      cookies.permanent[:_thorai_returning_user] = "t"
       redirect_to subscriptions_new_url
     end
+    
   end
   
   def purchase
@@ -30,8 +32,8 @@ class HomeController < ApplicationController
     if user_signed_in?
       @user = current_user
     else
-      session[:_purchest_back_to_c_out] = true
-      session[:_purchest_back_url] = request.url
+      session[:_thorai_back_to_c_out] = true
+      session[:_thorai_back_url] = request.url
     end
     params[:quantity] = 1;
     @total_price = params[:quantity] * @purchase_deal.deal_price;

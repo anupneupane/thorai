@@ -11,8 +11,8 @@ class Users::SessionsController < Devise::SessionsController
       delete_chest
     end
     
-    if session[:_purchest_no_session_at_checkout] == true
-      session["#{resource_name}_return_to"] = session[:_purchest_orders_url]
+    if session[:_thorai_no_session_at_checkout] == true
+      session["#{resource_name}_return_to"] = session[:_thorai_orders_url]
       delete_session_purchase
     end
     
