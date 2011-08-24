@@ -11,12 +11,15 @@ class HomeController < ApplicationController
     if user_signed_in?
       @user = current_user
       unless (current_user.profile.nil? && current_user.profile.user_interests.empty?)
-        @active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
+        #@active_deals = Deal.still_active(DateTime.now).match_user_interests(@user)
+        @active_deals = Deal.all
       else
-        @active_deals = Deal.still_active(DateTime.now)
+        #@active_deals = Deal.still_active(DateTime.now)
+        @active_deals = Deal.all
       end
     else
-      @active_deals = Deal.still_active(DateTime.now)
+      #@active_deals = Deal.still_active(DateTime.now)
+      @active_deals = Deal.all
     end
     
     if !returning_user?
