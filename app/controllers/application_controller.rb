@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   APP_DOMAIN = 'www.thorai.com'
 
   def ensure_domain
-    if request.env['HTTP_HOST'] != APP_DOMAIN
-      redirect_to "http://#{APP_DOMAIN}", :status => 301
-    end
+    # if request.env['HTTP_HOST'] != APP_DOMAIN
+    #       redirect_to "http://#{APP_DOMAIN}", :status => 301
+    #     end
   end
     
   protected
